@@ -4,7 +4,9 @@
 <html>
 <body>
 <h2>Welcome to the Office</h2>
-<p><%= request.getAttribute("error")%></p>
+<p><% if(request.getAttribute("error")!= null){
+		out.println(request.getAttribute("error"));		
+}%></p>
 <form action="login" method="post">
 		<label>Employee name:</label> 
 		<input type="text" name="employeeName" /><br>
