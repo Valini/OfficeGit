@@ -1,6 +1,6 @@
 package com.jac.web.model;
 
-public class Library {
+public class Book {
 	
 	private int id;
 	private String bookName;
