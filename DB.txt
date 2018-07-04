@@ -1,0 +1,6 @@
+database server:
+den1.mysql3.gear.host
+
+dbname, username: javabeansproject
+
+password: Ha6R4_U~2Gx0
