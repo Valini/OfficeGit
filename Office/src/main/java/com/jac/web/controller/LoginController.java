@@ -29,29 +29,28 @@ public class LoginController extends HttpServlet {
 		// database
 		Employee e1 = employee.getEmployee(employeeName);
 		//if no such employee name exists in the database, return to index page
-		if(e1.equals(null)) {
+		if(e1 == null) {
 			request.setAttribute("error", "Wrong username or password.");
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);	
-		}
-		
-		// check if password entered by employee matches password in database
-		if (password.equals(e1.getPassword())) {
-			request.setAttribute("employeeName", employeeName);
-			request.setAttribute("employee", e1);
-			if (employeeName.equals("boss")) {
-				RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
-				rd.forward(request, response);
+		}else {
+			// check if password entered by employee matches password in database
+			if (password.equals(e1.getPassword())) {
+				request.setAttribute("employeeName", employeeName);
+				request.setAttribute("employee", e1);
+				if (employeeName.equals("boss")) {
+					RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
+					rd.forward(request, response);
+				} else {
+					RequestDispatcher rd = request.getRequestDispatcher("employee.jsp");
+					rd.forward(request, response);
+				}
 			} else {
-				RequestDispatcher rd = request.getRequestDispatcher("employee.jsp");
+				request.setAttribute("error", "Wrong username or password.");
+				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 				rd.forward(request, response);
 			}
-		} else {
-			request.setAttribute("error", "Wrong username or password.");
-			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-			rd.forward(request, response);
 		}
-
 	}
 
 }
