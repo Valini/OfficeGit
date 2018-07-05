@@ -4,20 +4,62 @@
 <html>
 
 <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+	crossorigin="anonymous">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+	integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+	crossorigin="anonymous"></script>
 </head>
 <body>
-<h2>Welcome to the Office</h2>
-<p><% if(request.getAttribute("error")!= null){
-		out.println(request.getAttribute("error"));		
-}%></p>
-<form action="login" method="post">
-		<label>Employee name:</label> 
-		<input type="text" name="employeeName" /><br>
-		<label>Password: </label>
-		<input type="password" name="password" /><br>
-		<button type="submit" class="btn btn-primary">Login</button>
-	</form>
+	<nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top clean-navbar">
+	<div class="container">
+		<a class="navbar-brand logo" href="#">Office</a>
+		<button class="navbar-toggler" data-toggle="collapse"
+			data-target="#navcol-1">
+			<span class="sr-only">Toggle navigation</span><span
+				class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navcol-1">
+			<ul class="nav navbar-nav ml-auto">
+				<li class="nav-item" role="presentation"><a
+					class="nav-link active" href="index.html">Home</a></li>
+				<li class="nav-item" role="presentation"><a class="nav-link"
+					href="login.html">Login</a></li>
+			</ul>
+		</div>
+	</div>
+	</nav>
+	<main class="page container" style="margin-top:100px;"> 
+		<div class="container">
+		<section class="clean-block clean-form dark">
+			<div class="container">
+				<div class="block-heading">
+					<h2 class="text-info">Log In</h2>
+						<%
+							if (request.getAttribute("error") != null) {
+								out.println("<div class='alert alert-danger'>"+request.getAttribute("error")+"</div>");
+							}
+						%>
+				</div>
+				<form action="login" method="post">
+					<div class="form-group">
+						<label for="employeeName">Username</label><input
+							class="form-control item" type="text" id="employeeName"
+							name="employeeName">
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label><input class="form-control"
+							type="password" id="password" name="password">
+					</div>
+					<button class="btn btn-primary btn-block" type="submit">Log In</button>
+				</form>
+			</div>
+		</section> 
+		</div>
+	</main>
+
 </body>
 </html>
