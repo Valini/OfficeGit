@@ -10,7 +10,7 @@
 <body>
 	<nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top clean-navbar">
 	<div class="container">
-		<a class="navbar-brand logo" href="#">Office</a>
+		<a class="navbar-brand logo" href="index.jsp">Office</a>
 		<button class="navbar-toggler" data-toggle="collapse"
 			data-target="#navcol-1">
 			<span class="sr-only">Toggle navigation</span><span
@@ -19,7 +19,7 @@
 		<div class="collapse navbar-collapse" id="navcol-1">
 			<ul class="nav navbar-nav ml-auto">
 				<li class="nav-item" role="presentation"><a
-					class="nav-link active" href="index.html">Home</a></li>
+					class="nav-link active" href="index.jsp">Home</a></li>
 				<li class="nav-item" role="presentation"><a class="nav-link"
 					href="login.html">Login</a></li>
 			</ul>
