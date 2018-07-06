@@ -10,23 +10,9 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top clean-navbar">
-	<div class="container">
-		<a class="navbar-brand logo" href="index.jsp">Office</a>
-		<button class="navbar-toggler" data-toggle="collapse"
-			data-target="#navcol-1">
-			<span class="sr-only">Toggle navigation</span><span
-				class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navcol-1">
-			<ul class="nav navbar-nav ml-auto">
-				<li class="nav-item" role="presentation"><a
-					class="nav-link active" href="index.jsp">Home</a></li>
-				<li class="nav-item" role="presentation"><a class="nav-link"
-					href="login.html">Login</a></li>
-			</ul>
-		</div>
-	</nav>
+<!-- Navbar -->
+<%@ include file="navbar.jsp" %>
+<br>
 	<main class="page container" style="margin-top:100px;">
 	<div class="container">
 		<section class="clean-block clean-form dark">
@@ -43,21 +29,21 @@
 				<div class="form-group">
 					<label for="employeeName">Employee Name</label><input
 						class="form-control item" type="text" id="employeeName"
-						name="employeeName">
+						name="employeeName" required="true">
 				</div>
 				<div class="form-group">
 					<label for="password">Password</label><input class="form-control"
-						type="password" id="password" name="password">
+						type="password" id="password" name="password" required="true">
 				</div>
 				<div class="form-group">
 					<label for="firstName">First name</label><input
 						class="form-control item" type="text" id="firstName"
-						name="firstName">
+						name="firstName" required="true">
 				</div>
 				<div class="form-group">
 					<label for="lastName">Last name</label><input
 						class="form-control item" type="text" id="lastName"
-						name="lastName">
+						name="lastName" required="true">
 				</div>
 				<div class="form-group">
 					<label for="city">City</label><input

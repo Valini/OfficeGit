@@ -26,11 +26,11 @@
 					<div class="form-group">
 						<label for="employeeName">Username</label><input
 							class="form-control item" type="text" id="employeeName"
-							name="employeeName">
+							name="employeeName" required="true">
 					</div>
 					<div class="form-group">
 						<label for="password">Password</label><input class="form-control"
-							type="password" id="password" name="password">
+							type="password" id="password" name="password" required="true">
 					</div>
 					<button class="btn btn-primary btn-block" type="submit">Log In</button>
 				</form>
