@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.jac.web.dao.EmployeeDAO;
 import com.jac.web.model.Employee;
@@ -16,6 +17,15 @@ import com.jac.web.model.Employee;
  */
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//logout
+		HttpSession session = request.getSession();
+		session.removeAttribute("employeeName");
+		session.invalidate();
+		
+		System.out.println("Logging out, session was removed");
+		response.sendRedirect("index.jsp");
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -36,6 +46,10 @@ public class LoginController extends HttpServlet {
 		}else {
 			// check if password entered by employee matches password in database
 			if (password.equals(e1.getPassword())) {
+				//create session
+				HttpSession session = request.getSession();
+				session.setAttribute("employeeName", employeeName);
+				
 				request.setAttribute("employeeName", employeeName);
 				request.setAttribute("employee", e1);
 				if (employeeName.equals("boss")) {

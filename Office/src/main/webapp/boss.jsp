@@ -7,7 +7,13 @@
 <title>The Boss</title>
 </head>
 <body>
-<h1>Welcome to the Boss Page!!!</h1>
-
+<!-- Navbar -->
+<%@ include file="navbar.jsp" %>
+<br>
+<main class="page container" style="margin-top:100px;"> 
+		<div class="container">
+<h1>Welcome <% out.print(session.getAttribute("employeeName")); %></h1>
+</div>
+</main>
 </body>
 </html>
