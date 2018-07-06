@@ -33,7 +33,40 @@ public class EmployeeDAO {
 		}
 		return s1;
 	}
-	
-	
+
+	public boolean addEmployee(Employee employee) {
+		boolean success = false;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/javabeansproject",
+					"javabeansproject", "Ha6R4_U~2Gx0");
+			// the mysql insert statement
+			String query = "INSERT INTO employees (employeeName, password, firstName, lastName, city, postalCode )"
+					+ " VALUES (?, ?, ?, ?, ?, ?)";
+
+			// create the mysql insert prepared statement
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+			preparedStmt.setString(1, employee.getEmployeeName());
+			preparedStmt.setString(2, employee.getPassword());
+			preparedStmt.setString(3, employee.getFirstName());
+			preparedStmt.setString(4, employee.getLastName());
+			preparedStmt.setString(5, employee.getCity());
+			preparedStmt.setString(6, employee.getPostalCode());
+
+			// execute the prepared statement
+			int count = preparedStmt.executeUpdate();
+			con.close();
+
+			if (count > 0) {
+				success = true;
+			} else {
+				success = false;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return success;
+	}
 
 }

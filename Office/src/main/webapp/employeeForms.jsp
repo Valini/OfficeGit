@@ -12,7 +12,6 @@
 <body>
 <!-- Navbar -->
 <%@ include file="navbar.jsp" %>
-<br>
 	<main class="page container" style="margin-top:100px;">
 	<div class="container">
 		<section class="clean-block clean-form dark">
@@ -20,8 +19,10 @@
 			<div class="block-heading">
 				<h2 class="text-info">Add Employee</h2>
 				<%
-					if (request.getAttribute("error") != null) {
-						out.println("<div class='alert alert-danger'>" + request.getAttribute("error") + "</div>");
+					if (request.getAttribute("errorAdd") != null) {
+						out.println("<div class='alert alert-danger'>" + request.getAttribute("errorAdd") + "</div>");
+					} else if (request.getAttribute("messageAdd") != null) {
+						out.println("<div class='alert alert-success'>" + request.getAttribute("messageAdd") + "</div>");
 					}
 				%>
 			</div>
@@ -60,8 +61,6 @@
 		</div>
 		</section>
 	</div>
-	</main> </nav>
-
-
+	</main>
 </body>
 </html>
