@@ -1,6 +1,8 @@
 package com.jac.web.controller;
 
+
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.jac.web.dao.EmployeeDAO;
+import com.jac.web.dao.LibraryDAO;
+import com.jac.web.model.Book;
 import com.jac.web.model.Employee;
 
 /**
@@ -49,9 +53,13 @@ public class LoginController extends HttpServlet {
 				//create session
 				HttpSession session = request.getSession();
 				session.setAttribute("employeeName", employeeName);
-				
 				request.setAttribute("employeeName", employeeName);
 				request.setAttribute("employee", e1);
+				//get list of books and send to tables- both boss and employee page
+				LibraryDAO books= new LibraryDAO();
+				ArrayList<Book> bookList=books.getAllBooks();
+				request.setAttribute("bookList", bookList);
+				
 				if (employeeName.equals("boss")) {
 					RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
 					rd.forward(request, response);

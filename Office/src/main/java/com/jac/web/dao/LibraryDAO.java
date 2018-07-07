@@ -11,7 +11,7 @@ import com.jac.web.model.Book;
 public class LibraryDAO {
 	
 	public ArrayList<Book> getAllBooks() {
-		ArrayList<Book> booksList = new ArrayList<Book>();
+		ArrayList<Book> bookList = new ArrayList<Book>();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/javabeansproject",
@@ -20,7 +20,7 @@ public class LibraryDAO {
 			PreparedStatement st = con.prepareStatement(query);
 			ResultSet rs = st.executeQuery();
 
-			if (rs.next()) {
+			while (rs.next()) {
 				Book book = new Book();
 				int idFromDB = rs.getInt("bookID");
 				String bookNameFromDB = rs.getString("bookName");
@@ -30,11 +30,45 @@ public class LibraryDAO {
 				book.setBookName(bookNameFromDB);
 				book.setAuthorName(authorNameFromDB);
 
-				booksList.add(book);
+				bookList.add(book);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return booksList;
+		return bookList;
 	}
+	
+	
+	public ArrayList<Book> GetBooksbyNameLike(String bookName) {
+		ArrayList<Book> booksInDB= new ArrayList<Book>();
+		
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/javabeansproject",
+					"javabeansproject", "Ha6R4_U~2Gx0");
+			
+			String query = "select * from books where bookName Like ?";
+			PreparedStatement st = con.prepareStatement(query);
+			st.setString(1, "%" + bookName + "%");
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()) {
+				Book p1 = new Book();
+				int bookIdFromDB=rs.getInt("bookId");
+				String bookNameFromDB = rs.getString("bookName");
+				String authorNameFromDB = rs.getString("authorName");
+				
+				p1.setId(bookIdFromDB);
+				p1.setBookName(bookNameFromDB);
+				p1.setAuthorName(authorNameFromDB);
+				booksInDB.add(p1);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return booksInDB;
+	}
+
 }
