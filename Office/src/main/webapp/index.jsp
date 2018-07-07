@@ -6,6 +6,13 @@
 <head>
 <link rel="stylesheet" href="css/bootstrap.min.css">         
 <script src="js/bootstrap.min.js"></script> 
+<style>
+#bookimage{
+width:50%;
+
+}
+
+</style>
 </head>
 <body>
 	<!-- Navbar -->
@@ -15,6 +22,8 @@
 		<section class="clean-block clean-form dark">
 			<div class="container">
 				<div class="block-heading">
+				<br>
+				<br>
 					<h2 class="text-info">Log In</h2>
 						<%
 							if (request.getAttribute("error") != null) {
@@ -22,6 +31,7 @@
 							}
 						%>
 				</div>
+				
 				<form action="login" method="post">
 					<div class="form-group">
 						<label for="employeeName">Username</label><input
@@ -38,6 +48,6 @@
 		</section> 
 		</div>
 	</main>
-
+	
 </body>
 </html>
