@@ -2,7 +2,7 @@ package com.jac.web.model;
 
 public class Employee {
 	
-	private int id;
+	private int employeeId;
 	private String employeeName;
 	private String password;
 	private String firstName;
@@ -10,11 +10,12 @@ public class Employee {
 	private String city;
 	private String postalCode;
 	
-	public int getId() {
-		return id;
+
+	public int getEmployeeId() {
+		return employeeId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
 	}
 	public String getEmployeeName() {
 		return employeeName;
@@ -54,12 +55,13 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", employeeName=" + employeeName + ", password=" + password + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", city=" + city + ", postalCode=" + postalCode + ", getId()="
-				+ getId() + ", getEmployeeName()=" + getEmployeeName() + ", getPassword()=" + getPassword()
-				+ ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName() + ", getCity()=" + getCity()
-				+ ", getPostalCode()=" + getPostalCode() + "]";
+		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", password=" + password
+				+ ", firstName=" + firstName + ", lastName=" + lastName + ", city=" + city + ", postalCode="
+				+ postalCode + ", getEmployeeId()=" + getEmployeeId() + ", getEmployeeName()=" + getEmployeeName()
+				+ ", getPassword()=" + getPassword() + ", getFirstName()=" + getFirstName() + ", getLastName()="
+				+ getLastName() + ", getCity()=" + getCity() + ", getPostalCode()=" + getPostalCode() + "]";
 	}
+	
 	
 	
 	

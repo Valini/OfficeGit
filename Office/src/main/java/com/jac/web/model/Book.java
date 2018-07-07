@@ -2,15 +2,15 @@ package com.jac.web.model;
 
 public class Book {
 	
-	private int id;
+	private int bookId;
 	private String bookName;
 	private String authorName;
 	
-	public int getId() {
-		return id;
+	public int getBookId() {
+		return bookId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int bookId) {
+		this.bookId = bookId;
 	}
 	public String getBookName() {
 		return bookName;
@@ -26,9 +26,10 @@ public class Book {
 	}
 	@Override
 	public String toString() {
-		return "Library [id=" + id + ", bookName=" + bookName + ", authorName=" + authorName + ", getId()=" + getId()
-				+ ", getBookName()=" + getBookName() + ", getAuthorName()=" + getAuthorName() + "]";
+		return "Book [bookId=" + bookId + ", bookName=" + bookName + ", authorName=" + authorName + ", getBookId()="
+				+ getBookId() + ", getBookName()=" + getBookName() + ", getAuthorName()=" + getAuthorName() + "]";
 	}
+	
 	
 	
 

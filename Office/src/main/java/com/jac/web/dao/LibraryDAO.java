@@ -11,30 +11,30 @@ import com.jac.web.model.Book;
 public class LibraryDAO {
 	
 	public ArrayList<Book> getAllBooks() {
-		ArrayList<Book> books = new ArrayList<Book>();
+		ArrayList<Book> booksList = new ArrayList<Book>();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/javabeansproject",
 					"javabeansproject", "Ha6R4_U~2Gx0");
-			String query = "SELECT * from libray"; //NOT SURE ABOUT THE TABLE NAME
+			String query = "SELECT * from books"; 
 			PreparedStatement st = con.prepareStatement(query);
 			ResultSet rs = st.executeQuery();
 
 			if (rs.next()) {
 				Book book = new Book();
 				int idFromDB = rs.getInt("bookID");
-				String nameFromDB = rs.getString("bookName");
-				String priceFromDB = rs.getString("authorName");
+				String bookNameFromDB = rs.getString("bookName");
+				String authorNameFromDB = rs.getString("authorName");
 				
 				book.setId(idFromDB);
-				book.setBookName(nameFromDB);
-				book.setAuthorName(priceFromDB);
+				book.setBookName(bookNameFromDB);
+				book.setAuthorName(authorNameFromDB);
 
-				books.add(book);
+				booksList.add(book);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return books;
+		return booksList;
 	}
 }
