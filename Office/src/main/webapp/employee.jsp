@@ -29,7 +29,7 @@
 <br>
 
 <%if (request.getAttribute("result") != null) {
-	out.println("<div class='alert alert-primary'>"+request.getAttribute("result")+"</div>");} %>	
+	out.println("<div class='alert alert-danger'>"+request.getAttribute("result")+"</div>");} %>	
 	<br>
 <h4>List of books available</h4> 
   <table class="table table-hover">
