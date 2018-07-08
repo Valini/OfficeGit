@@ -13,7 +13,8 @@
 <main class="page container" style="margin-top:100px;"> 
 		<div class="container">
 <h1>Welcome <% out.print(session.getAttribute("employeeName")); %></h1>
-<a href="employeeForms.jsp">form</a><br>
+<a href="employeeForm.jsp">form</a><br/>
+<a class="btn btn-outline-primary" href="editEmployeeForm.jsp?employeeID=3">Edit</a><br/>
 
 
 <a href="InventoryController">Inventory</a>
