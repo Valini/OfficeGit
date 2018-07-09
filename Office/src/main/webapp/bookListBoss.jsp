@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Employee Page</title>
+<title>Book List</title>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -76,6 +76,8 @@
 						<td><%=book.getBookId()%></td>
 						<td><%=book.getBookName()%></td>
 						<td><%=book.getAuthorName()%></td>
+						<td><a class="btn btn-primary" href="bookForm.jsp?bookId=<%=book.getBookId()%>">Edit</a></td>
+						<td><form action="LibraryController" method="get" ><input type="hidden" name="bookId" value="<%= book.getBookId() %>"><button class="btn btn-primary" type="submit">Delete</button></form></td>
 
 
 						<%
@@ -85,6 +87,9 @@
 				</tbody>
 			</table>
 			<br />
+			<p>
+				<a href="bookForm.jsp">Add Book</a>
+			</p>
 		</div>
 
 
