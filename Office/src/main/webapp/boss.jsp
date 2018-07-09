@@ -19,7 +19,7 @@
 		<div class="container" style="margin-top:7%;">
 			
 			
-			<h1>Welcome <%= session.getAttribute("employeeName") %> </h1>
+			<h1>List of Employees </h1>
 					
 			<% if (request.getAttribute("employeesList") != null) { 
 		
@@ -69,10 +69,7 @@
 			
 			</table>
 			
-<<<<<<< HEAD
-			
-=======
->>>>>>> cc11c7e13b66e3ac768c6c422d772362dce77959
+
 			
 			<% if (request.getAttribute("status") != null) { %>
 				<p class="lead"><%= request.getAttribute("status") %></p>
