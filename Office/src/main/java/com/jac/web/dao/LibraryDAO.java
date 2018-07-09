@@ -110,48 +110,4 @@ public class LibraryDAO {
 		}
 		return success;
 	}
-//	
-//	public void deleteBook(int bookId) {
-//		try {
-//			String query = "delete from * books where bookId=?";
-//			PreparedStatement st = con.prepareStatement(query);
-//			st.setInt(1, bookId);
-//			st.executeUpdate();
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
-//	
-//	public void updateBook(Book book) {
-//		try {
-//			String query = "update books set bookName=?, authorName=? where bookId=?";
-//			PreparedStatement st = con.prepareStatement(query);
-//			st.setString(1, book.getBookName());
-//			st.setString(2, book.getAuthorName());
-//			st.executeUpdate();
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
-//	
-//	public Book getBookById(int bookId) {
-//		Book book = new Book();
-//		try {
-//			String query = "select * from books where bookId=?";
-//			PreparedStatement st = con.prepareStatement(query);
-//			st.setInt(1, bookId);
-//			ResultSet rs = st.executeQuery();
-//			
-//			if(rs.next()) {
-//				book.setId(rs.getInt("bookId"));
-//				book.setBookName(rs.getString("bookName"));
-//				book.setAuthorName(rs.getString("authorName"));
-//			}
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return book;
-//	}
-
 }

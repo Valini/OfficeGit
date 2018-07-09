@@ -36,7 +36,7 @@ public class EmployeeController extends HttpServlet {
 		 
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+/*/protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			// for deleting an employee (post is not needed)
 		String action = null;
 		
@@ -63,7 +63,7 @@ public class EmployeeController extends HttpServlet {
 			}
 						
 		}
-	}
+	}*/
 		
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
