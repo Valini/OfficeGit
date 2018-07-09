@@ -83,7 +83,6 @@
 						Employee employee = new Employee();
 						employee = employeeDAO.getEmployeeByID(employeeID);
 				%>
-				
 			</div>
 			<form action="EmployeeController" method="post">
 				<div class="form-group">
