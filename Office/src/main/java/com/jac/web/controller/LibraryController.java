@@ -57,7 +57,7 @@ public class LibraryController extends HttpServlet {
 				LibraryDAO books = new LibraryDAO();
 				ArrayList<Book> bookList = books.getAllBooks();
 				request.setAttribute("bookList", bookList);
-				RequestDispatcher rd = request.getRequestDispatcher("employee.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("bookListBoss.jsp");
 				rd.forward(request, response);
 			} else {
 				request.setAttribute("errorAdd", "There was an error adding the book! Please try again.");
