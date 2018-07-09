@@ -4,8 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jac.web.model.Employee;
+
 
 public class EmployeeDAO {
 
@@ -164,4 +168,47 @@ public class EmployeeDAO {
 		return success;
 	}
 
+	public ArrayList<Employee> getAllEmployees() {
+		
+		ArrayList<Employee> list = new ArrayList<Employee>();
+		
+		try {
+			// create a java mysql database connection
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/javabeansproject",
+					"javabeansproject", "Ha6R4_U~2Gx0");
+
+	
+
+			String query = "select * from employees";
+
+			Statement st = con.createStatement();
+
+			ResultSet rs = st.executeQuery(query);
+
+			while (rs.next()) {
+
+				Employee e = new Employee();
+				e.setEmployeeId(rs.getInt(1));
+				e.setEmployeeName(rs.getString(2));
+				e.setPassword(rs.getString(3));
+				e.setFirstName(rs.getString(4));
+				e.setLastName(rs.getString(5));
+				e.setCity(rs.getString(6));
+				e.setPostalCode(rs.getString(7));
+				
+				list.add(e);
+
+			}
+
+			con.close();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 }

@@ -61,6 +61,10 @@ public class LoginController extends HttpServlet {
 				request.setAttribute("bookList", bookList);
 				
 				if (employeeName.equals("boss")) {
+					
+					EmployeeDAO dao = new EmployeeDAO();
+					request.setAttribute("employeesList", dao.getAllEmployees());					
+					
 					RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
 					rd.forward(request, response);
 				} else {
