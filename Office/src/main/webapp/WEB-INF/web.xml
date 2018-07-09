@@ -50,7 +50,7 @@
   	<servlet-name>LibraryController</servlet-name>
   	<display-name>LibraryController</display-name>
   	<description></description>
-  	<servlet-class>com.jac.web.controller.LibraryCOntroller</servlet-class>
+  	<servlet-class>com.jac.web.controller.LibraryController</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>LoginController</servlet-name>

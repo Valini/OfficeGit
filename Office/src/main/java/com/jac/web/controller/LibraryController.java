@@ -25,14 +25,13 @@ public class LibraryController extends HttpServlet {
 		
 		book.setBookName(bookName);
 		book.setAuthorName(authorName);
+		
 		LibraryDAO libraryDAO = new LibraryDAO();
 		if(libraryDAO.addBook(book)) {
-			request.setAttribute("messageAdd", "Book added!");
-			RequestDispatcher rd = request.getRequestDispatcher("bookForm.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("employee.jsp");
 			rd.forward(request, response);
 		}else {
-			request.setAttribute("errorAdd", "ERROR!!!");
-			RequestDispatcher rd = request.getRequestDispatcher("bookForm.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("employee.jsp");
 			rd.forward(request, response);
 		}
 		
