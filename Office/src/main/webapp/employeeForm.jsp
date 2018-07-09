@@ -65,7 +65,13 @@
 				<input type="hidden" name="action" id="action" value="add">
 				<button class="btn btn-primary btn-block" type="submit">Add
 					Employee</button>
+				
+					
 			</form>
+			<br>
+			<div>
+				<button class="btn btn-primary btn-block"  href="boss.jsp">Back</button>
+				</div>
 		</div>
 		</section>
 	</div>
