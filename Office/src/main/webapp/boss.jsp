@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import="java.util.ArrayList" %>
+	<%@ page import="com.jac.web.model.Employee" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +14,6 @@
 	<%@ include file="navbar.jsp"%>
 	<br>
 	
-	<%@ page import="java.util.ArrayList" %>
-	<%@ page import="com.jac.web.model.Employee" %>
-		
-		
 		<!--  can only be accessed by the boss -->
 
 		<div class="container" style="margin-top:6%;">
@@ -54,9 +52,10 @@
 					<td><%= city %></td>
 					<td><%= postal %></td>
 					
-					<td><a href="deleteEmployee?id=<%=id %>">Delete</a>	
-					<td><a href="deleteEmployee?id=<%=id %>">Add</a>	
-					<td><a href="deleteEmployee?id=<%=id %>">Edit</a>	
+					<td><<form action="EmployeeController" method="get" ><input type="hidden" name="employeeId" value="<%=  e.getEmployeeId() %>"><button class="btn btn-primary" type="submit">Delete</button></form><td>
+					<a href="deleteEmployee?id=<%=id %>">Delete</a>	
+					
+					<td><a class="btn btn-outline-primary" href="employeeForm.jsp?employeeID=<%=e.getEmployeeId()%>">Edit</a>	
 					
 				</tr>
 				
@@ -65,6 +64,8 @@
 				
 			
 			</table>
+			
+			<td><a class="btn btn-outline-primary" href="employeeForm.jsp">Add</a>	
 			
 			<% if (request.getAttribute("status") != null) { %>
 				<p class="lead"><%= request.getAttribute("status") %></p>

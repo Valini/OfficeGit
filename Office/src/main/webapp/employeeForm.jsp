@@ -14,7 +14,7 @@
 <body>
 	<!-- Navbar -->
 	<%@ include file="navbar.jsp"%>
-	<main class="page container" style="margin-top:150px;"> <%=request.getParameter("employeeID")%>
+	<main class="page container" style="margin-top:150px;">
 	<%
 		if (request.getParameter("employeeID") == null) {
 	%>
