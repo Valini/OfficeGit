@@ -18,10 +18,7 @@ public class EditEmployeeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		
-		
-			
+	
 	}
 
 
@@ -45,17 +42,19 @@ public class EditEmployeeController extends HttpServlet {
 		employee.setPostalCode(postalCode);
 		
 		EmployeeDAO employeeDAO = new EmployeeDAO();
-		employeeDAO.updateEmployee(employee);
-		/*
+
+		
 		if(employeeDAO.updateEmployee(employee)) {
+			request.setAttribute("employeeID", employee.getEmployeeId()+"");
 			request.setAttribute("messageUpdate", "New employee updated!");
-			RequestDispatcher rd = request.getRequestDispatcher("employeeForms.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("editEmployeeForm.jsp");
 			rd.forward(request, response);
 		}else {
+			request.setAttribute("employeeID", employee.getEmployeeId()+"");
 			request.setAttribute("errorUpdate", "There was an error updating the employee! Please try again.");
-			RequestDispatcher rd = request.getRequestDispatcher("employeeForms.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("editEmployeeForm.jsp");
 			rd.forward(request, response);
-		}*/
+		}
 		
 	}
 
