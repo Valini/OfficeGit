@@ -66,7 +66,7 @@ Book book = bookList.get(i); %>
     </tbody>
   </table>
   <br/>
-  <p><a href="LibraryController?action=insert&bookId=<c:out value="${product.productId}" />">Add Book</a></p>	
+  <p><a href="bookForm.jsp">Add Book</a></p>	
   </div>
 
 
