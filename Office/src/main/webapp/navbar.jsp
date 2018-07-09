@@ -27,6 +27,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navcol-1">
 				<ul class="nav navbar-nav ml-auto">
+					
+					
 					<li class="nav-item" role="presentation">
 						<%
 							if (session.getAttribute("employeeName") != null) {

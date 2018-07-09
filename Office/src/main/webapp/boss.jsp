@@ -69,7 +69,7 @@
 			
 			</table>
 			
-			<td><a class="btn btn-outline-primary" href="employeeForm.jsp">Add</a>	
+			
 			
 			<% if (request.getAttribute("status") != null) { %>
 				<p class="lead"><%= request.getAttribute("status") %></p>
@@ -87,9 +87,11 @@
 		}
 		%>
 		
+<br>
+<br>
 
 
-	<a href="InventoryController">Product Inventory</a>
+	<a class="btn btn-primary" href="InventoryController">Product Inventory</a>
 		
 		
 
