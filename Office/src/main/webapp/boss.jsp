@@ -58,9 +58,6 @@
 					
 					<td><a class="btn btn-primary" href="employeeForm.jsp?employeeID=<%=e.getEmployeeId()%>">Edit</a></td>	
 
-					
-
-					
 				</tr>
 				
 	
@@ -91,7 +88,7 @@
 <br>
 
 
-	<a class="btn btn-primary" href="InventoryController">Book List</a>
+	<a class="btn btn-primary" href="InventoryController">Product Inventory</a>
 		
 		
 
