@@ -118,7 +118,7 @@ public class LibraryDAO {
 			Connection con = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/javabeansproject",
 					"javabeansproject", "Ha6R4_U~2Gx0");
 			// the mysql insert statement
-			String query = "DELETE FROM Books WHERE employeeID= ?";
+			String query = "DELETE FROM books WHERE bookId= ?";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			preparedStmt.setInt(1, ID);
 
@@ -136,5 +136,63 @@ public class LibraryDAO {
 			e.printStackTrace();
 		}
 		return success;
+	}
+	
+	public boolean updateBook(Book book) {
+		boolean success=false;
+		try {
+			// create a java mysql database connection
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/javabeansproject",
+					"javabeansproject", "Ha6R4_U~2Gx0");
+
+			// create the java mysql update prepared statement
+			String query = "UPDATE books set bookName=?, authorName=? "
+					+ "where bookId= ?"; 
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+			preparedStmt.setString(1, book.getBookName());
+			preparedStmt.setString(2, book.getAuthorName());
+			preparedStmt.setInt(3, book.getBookId());
+
+			// execute the java prepared statement
+			int count = preparedStmt.executeUpdate();
+
+			con.close();
+			if (count > 0) {
+				success = true;
+			} else {
+				success = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return success;
+	}
+	
+	public Book getBookByID(int ID) {
+		Book s1 = null;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/javabeansproject",
+					"javabeansproject", "Ha6R4_U~2Gx0");
+			String query = "SELECT * from books where bookId=?";
+			PreparedStatement st = con.prepareStatement(query);
+			st.setInt(1, ID);
+			ResultSet rs = st.executeQuery();
+
+			if (rs.next()) {
+				s1 = new Book();
+				int bookIDFromDB = rs.getInt("bookId");
+				String bookNameFromDB = rs.getString("bookName");
+				String authorNameFromDB = rs.getString("authorName");
+				
+				s1.setId(bookIDFromDB);
+				s1.setBookName(bookNameFromDB);
+				s1.setAuthorName(authorNameFromDB);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return s1;
 	}
 }
