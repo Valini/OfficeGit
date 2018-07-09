@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jac.web.dao.EmployeeDAO;
+import com.jac.web.dao.LibraryDAO;
+import com.jac.web.model.Book;
 import com.jac.web.model.Employee;
 
 /**
@@ -34,6 +36,35 @@ public class EmployeeController extends HttpServlet {
 		 
 	}
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			// for deleting an employee (post is not needed)
+		String action = null;
+		
+		if (request.getParameter("action") != null) {
+			action = request.getParameter("action");
+		}
+				
+		if (action.equals("delete")) {
+		
+			EmployeeDAO dao = new EmployeeDAO();
+			
+			int id = Integer.parseInt(request.getParameter("id"));
+
+			if (dao.deleteEmployee(id) == true) {
+				request.setAttribute("status", "Employee Deleted Successfully");
+				request.setAttribute("employeesList", dao.getAllEmployees());
+				RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
+				rd.include(request, response);
+			}
+			else {
+				request.setAttribute("status", "Error Deleting Employee");
+				RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
+				rd.include(request, response);
+			}
+						
+		}
+	}
+		
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		String action = request.getParameter("action");
@@ -91,7 +122,10 @@ public class EmployeeController extends HttpServlet {
 				request.setAttribute("messageUpdate", "Employee #"+employee.getEmployeeId()+" updated!");
 				RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
 				rd.forward(request, response);
-			}else {
+			}
+			
+				
+			else {
 				request.setAttribute("employeeID", request.getParameter("employeeId"));
 				request.setAttribute("errorUpdate", "There was an error updating the employee! Please try again.");
 				RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");

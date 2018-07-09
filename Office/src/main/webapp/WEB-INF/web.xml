@@ -41,16 +41,16 @@
   	<servlet-class>com.jac.web.controller.EditEmployeeController</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>LibraryController</servlet-name>
-  	<display-name>LibraryController</display-name>
-  	<description></description>
-  	<servlet-class>com.jac.web.controller.LibraryController</servlet-class>
-  </servlet>
-  <servlet>
   	<servlet-name>BossController</servlet-name>
   	<display-name>BossController</display-name>
   	<description></description>
   	<servlet-class>com.jac.web.controller.BossController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LibraryController</servlet-name>
+  	<display-name>LibraryController</display-name>
+  	<description></description>
+  	<servlet-class>com.jac.web.controller.LibraryCOntroller</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>LoginController</servlet-name>
@@ -77,12 +77,12 @@
   	<url-pattern>/EditEmployee</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>LibraryController</servlet-name>
-  	<url-pattern>/LibraryController</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
   	<servlet-name>BossController</servlet-name>
   	<url-pattern>/BossController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LibraryController</servlet-name>
+  	<url-pattern>/LibraryController</url-pattern>
   </servlet-mapping>
     <welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>

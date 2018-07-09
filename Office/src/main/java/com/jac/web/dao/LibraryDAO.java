@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.jac.web.model.Book;
+import com.jac.web.model.Employee;
 
 
 public class LibraryDAO {
@@ -79,16 +80,36 @@ public class LibraryDAO {
 		return booksInDB;
 	}
 
-//	public void addBook(Book book) {
-//		try {
-//			String query = "insert into books(bookName, authorName) values(?, ?)";
-//			PreparedStatement st = con.prepareStatement(query);
-//			st.setString(1, book.getBookName());
-//			st.setString(2, book.getAuthorName());
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
+	public boolean addBook(Book book) {
+		boolean success = false;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/javabeansproject",
+					"javabeansproject", "Ha6R4_U~2Gx0");
+			// the mysql insert statement
+			String query = "INSERT INTO books (bookName, authorName) "
+					+ " VALUES (?, ?)";
+
+			// create the mysql insert prepared statement
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+			preparedStmt.setString(1, book.getBookName());
+			preparedStmt.setString(2, book.getAuthorName());
+
+			// execute the prepared statement
+			int count = preparedStmt.executeUpdate();
+			con.close();
+
+			if (count > 0) {
+				success = true;
+			} else {
+				success = false;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return success;
+	}
 //	
 //	public void deleteBook(int bookId) {
 //		try {

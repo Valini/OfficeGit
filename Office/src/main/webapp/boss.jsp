@@ -16,7 +16,7 @@
 	
 		<!--  can only be accessed by the boss -->
 
-		<div class="container" style="margin-top:6%;">
+		<div class="container" style="margin-top:7%;">
 			
 			
 			<h1>Welcome <%= session.getAttribute("employeeName") %> </h1>
@@ -52,10 +52,15 @@
 					<td><%= city %></td>
 					<td><%= postal %></td>
 					
+<<<<<<< HEAD
 					<td><<form action="EmployeeController" method="get" ><input type="hidden" name="employeeId" value="<%=  e.getEmployeeId() %>"><button class="btn btn-primary" type="submit">Delete</button></form><td>
 					<a href="deleteEmployee?id=<%=id %>">Delete</a>	
 					
 					<td><a class="btn btn-outline-primary" href="employeeForm.jsp?employeeID=<%=e.getEmployeeId()%>">Edit</a>	
+=======
+					<td><a href="EmployeeController?action=delete&id=<%=id %>">Delete</a>	
+					<td><a href="employeeForm.jsp?employeeID=<%=id %>">Edit</a>	
+>>>>>>> dd425dbd59f279537eda725a4d31609fe0e4d9c5
 					
 				</tr>
 				
@@ -73,9 +78,7 @@
 			}
 			
 			%>
-			
-			<a href="add" class="btn btn-primary">Add Employee</a>
-			
+				<a href="employeeForm.jsp" class="btn btn-primary">Add Employee</a>		
 		<%
 		if (request.getAttribute("errorUpdate") != null) {
 			out.println("<div class='alert alert-danger'>" + request.getAttribute("errorUpdate") + "</div>");
@@ -85,11 +88,9 @@
 		}
 		%>
 		
-	<a href="employeeForm.jsp">form</a><br /> <a
-		class="btn btn-outline-primary" href="employeeForm.jsp?employeeID=3">Edit</a><br />
 
 
-	<a href="InventoryController">Inventory</a> %>
+	<a href="InventoryController">Product Inventory</a>
 		
 		
 
