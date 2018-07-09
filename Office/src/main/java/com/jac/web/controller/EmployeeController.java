@@ -20,19 +20,20 @@ import com.jac.web.model.Employee;
 public class EmployeeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String employeeId = request.getParameter("employeeId");
 		int id= Integer.parseInt(employeeId);
 		EmployeeDAO p1= new EmployeeDAO();
-		String result= p1.deleteEmployee(id);
+		String result = p1.deleteEmployee(id);
 		request.setAttribute("result", result);
 		response.setContentType("text/html");
 		
 		//refresh the product list
-				EmployeeDAO employees= new EmployeeDAO();
-				ArrayList<Employee> employeeList=employees.getAllEmployees();
-				request.setAttribute("employeesList", employeeList);
-	RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
-	rd.include(request, response);
+		EmployeeDAO employees= new EmployeeDAO();
+		ArrayList<Employee> employeeList=employees.getAllEmployees();
+		request.setAttribute("employeesList", employeeList);
+		RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
+		rd.include(request, response);
 		 
 	}
 

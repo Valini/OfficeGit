@@ -74,7 +74,7 @@ public class EmployeeDAO {
 	}
 
 	public String deleteEmployee(int ID) {
-		boolean success = false;
+		//boolean success = false;
 		String result = "Product was not successfully deleted";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");

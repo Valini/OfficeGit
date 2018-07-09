@@ -69,7 +69,6 @@
 			
 			</table>
 			
-			<td><a class="btn btn-outline-primary" href="employeeForm.jsp">Add</a>	
 			
 			<% if (request.getAttribute("status") != null) { %>
 				<p class="lead"><%= request.getAttribute("status") %></p>
