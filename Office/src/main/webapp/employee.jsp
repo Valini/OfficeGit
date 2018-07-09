@@ -48,6 +48,9 @@
 				if (request.getAttribute("result") != null) {
 					out.println("<div class='alert alert-danger'>" + request.getAttribute("result") + "</div>");
 				}
+			 if (request.getAttribute("messageAdd") != null) {
+					out.println("<div class='alert alert-success'>" + request.getAttribute("messageAdd") + "</div>");
+				}
 			%>
 			<br>
 			<h4>

@@ -15,11 +15,9 @@
 		<div class="block-heading">
 			<h2 class="text-info">Add Employee</h2>
 			<%
-				if (request.getAttribute("erroradd") != null) {
+				if (request.getAttribute("errorAdd") != null) {
 					out.println("<div class='alert alert-danger'>" + request.getAttribute("errorAdd") + "</div>");
-				} else if (request.getAttribute("messageAdd") != null) {
-					out.println("<div class='alert alert-success'>" + request.getAttribute("messageAdd") + "</div>");
-				}
+				} 
 			%>
 		</div>
 		<div class="form-group">
@@ -32,8 +30,7 @@
 				class="form-control" type="text" id="authorName" name="authorName"
 				required="required" />
 		</div>
-		<button class="btn btn-primary btn-block" type="submit">Add
-			Book</button>
+		<button class="btn btn-primary btn-block" type="submit">Add Book</button>
 	</form>
 </body>
 </html>

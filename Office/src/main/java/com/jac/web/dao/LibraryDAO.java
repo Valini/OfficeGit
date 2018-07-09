@@ -110,4 +110,31 @@ public class LibraryDAO {
 		}
 		return success;
 	}
+	
+	public boolean deleteBook(int ID) {
+		boolean success = false;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/javabeansproject",
+					"javabeansproject", "Ha6R4_U~2Gx0");
+			// the mysql insert statement
+			String query = "DELETE FROM Books WHERE employeeID= ?";
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+			preparedStmt.setInt(1, ID);
+
+			// execute the prepared statement
+			int count = preparedStmt.executeUpdate();
+			if (count > 0) {
+				success= true;
+				
+			} else {
+				success= false;
+			}
+			con.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return success;
+	}
 }
