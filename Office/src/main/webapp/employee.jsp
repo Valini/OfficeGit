@@ -3,6 +3,8 @@
 	   <%@page import="com.jac.web.model.Book"%>
      <%@page import= "java.util.ArrayList"%>
     <%@page import="com.jac.web.model.Employee"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,14 +55,18 @@ for (int i=0; i<bookList.size(); i++){
 Book book = bookList.get(i); %>
 <tr>
 <td><%= book.getBookId() %></td>
-<td><%= book.getBookName() %>
-<td><%= book.getAuthorName() %>
+<td><%= book.getBookName() %></td>
+<td><%= book.getAuthorName() %></td>
+<td><a href="LibraryController?action=Edit&bookId=<c:out value="${book.bookId}" />">Edit</a></td>
+<td><a href="LibraryController?action=delete&bookId=<c:out value="${book.bookId}" />">Delete</a></td>
 
 
 <%}  %>
 </tr>
     </tbody>
-  </table>	
+  </table>
+  <br/>
+  <p><a href="LibraryController?action=insert&bookId=<c:out value="${product.productId}" />">Add Book</a></p>	
   </div>
 
 
