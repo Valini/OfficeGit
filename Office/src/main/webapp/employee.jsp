@@ -76,10 +76,8 @@
 						<td><%=book.getBookId()%></td>
 						<td><%=book.getBookName()%></td>
 						<td><%=book.getAuthorName()%></td>
-						<td><a
-							href="LibraryController?action=Edit&bookId=<c:out value="${book.bookId}" />">Edit</a></td>
-						<td><a
-							href="LibraryController?action=delete&bookId=<c:out value="${book.bookId}" />">Delete</a></td>
+						<td><a class="btn btn-primary" href="bookForm.jsp?bookId=<%=book.getBookId()%>">Edit</a></td>
+						<td><form action="LibraryController" method="get" ><input type="hidden" name="bookId" value="<%= book.getBookId() %>"><button class="btn btn-primary" type="submit">Delete</button></form></td>
 
 
 						<%

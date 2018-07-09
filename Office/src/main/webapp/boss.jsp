@@ -56,7 +56,7 @@
 					<td><form action="EmployeeController" method="get" ><input type="hidden" name="employeeId" value="<%=  e.getEmployeeId() %>"><button class="btn btn-primary" type="submit">Delete</button></form><td>
 					
 					
-					<td><a class="btn btn-primary" href="employeeForm.jsp?employeeID=<%=e.getEmployeeId()%>">Edit</a>	
+					<td><a class="btn btn-primary" href="employeeForm.jsp?employeeID=<%=e.getEmployeeId()%>">Edit</a></td>	
 
 					
 
@@ -69,7 +69,10 @@
 			
 			</table>
 			
+<<<<<<< HEAD
 			
+=======
+>>>>>>> cc11c7e13b66e3ac768c6c422d772362dce77959
 			
 			<% if (request.getAttribute("status") != null) { %>
 				<p class="lead"><%= request.getAttribute("status") %></p>
