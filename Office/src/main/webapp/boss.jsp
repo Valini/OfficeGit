@@ -18,7 +18,7 @@
 		
 		<!--  can only be accessed by the boss -->
 
-		<div class="container" style="margin-top:6%;">
+		<div class="container" style="margin-top:7%;">
 			
 			
 			<h1>Welcome <%= session.getAttribute("employeeName") %> </h1>
@@ -54,9 +54,8 @@
 					<td><%= city %></td>
 					<td><%= postal %></td>
 					
-					<td><a href="deleteEmployee?id=<%=id %>">Delete</a>	
-					<td><a href="deleteEmployee?id=<%=id %>">Add</a>	
-					<td><a href="deleteEmployee?id=<%=id %>">Edit</a>	
+					<td><a href="EmployeeController?action=delete&id=<%=id %>">Delete</a>	
+					<td><a href="employeeForm.jsp?employeeID=<%=id %>">Edit</a>	
 					
 				</tr>
 				
@@ -72,9 +71,7 @@
 			}
 			
 			%>
-			
-			<a href="add" class="btn btn-primary">Add Employee</a>
-			
+				<a href="employeeForm.jsp" class="btn btn-primary">Add Employee</a>		
 		<%
 		if (request.getAttribute("errorUpdate") != null) {
 			out.println("<div class='alert alert-danger'>" + request.getAttribute("errorUpdate") + "</div>");
@@ -84,11 +81,9 @@
 		}
 		%>
 		
-	<a href="employeeForm.jsp">form</a><br /> <a
-		class="btn btn-outline-primary" href="employeeForm.jsp?employeeID=3">Edit</a><br />
 
 
-	<a href="InventoryController">Inventory</a> %>
+	<a href="InventoryController">Product Inventory</a>
 		
 		
 
