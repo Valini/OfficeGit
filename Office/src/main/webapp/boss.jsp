@@ -56,7 +56,7 @@
 					<td><form action="EmployeeController" method="get" ><input type="hidden" name="employeeId" value="<%=  e.getEmployeeId() %>"><button class="btn btn-primary" type="submit">Delete</button></form><td>
 					
 					
-					<td><a class="btn btn-primary" href="employeeForm.jsp?employeeID=<%=e.getEmployeeId()%>">Edit</a>	
+					<td><a class="btn btn-primary" href="employeeForm.jsp?employeeID=<%=e.getEmployeeId()%>">Edit</a></td>	
 
 					
 
