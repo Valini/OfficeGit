@@ -70,7 +70,8 @@
 			</form>
 			<br>
 			<div>
-				<button class="btn btn-primary btn-block"  href="boss.jsp">Back</button>
+				
+				<a class="btn btn-primary btn-block"  href="Manage">Back</a>
 				</div>
 		</div>
 		</section>
@@ -130,6 +131,8 @@
 					<input type="hidden" name="action" id="action" value="edit">
 				<button class="btn btn-primary btn-block" type="submit">Edit
 					Employee</button>
+					
+					<a class="btn btn-primary btn-block"  href="Manage">Back</a>
 			</form>
 		</div>
 		</section>
