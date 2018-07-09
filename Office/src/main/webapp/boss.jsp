@@ -69,6 +69,10 @@
 			
 			</table>
 			
+<<<<<<< HEAD
+			
+=======
+>>>>>>> cc11c7e13b66e3ac768c6c422d772362dce77959
 			
 			<% if (request.getAttribute("status") != null) { %>
 				<p class="lead"><%= request.getAttribute("status") %></p>
@@ -86,9 +90,11 @@
 		}
 		%>
 		
+<br>
+<br>
 
 
-	<a href="InventoryController">Product Inventory</a>
+	<a class="btn btn-primary" href="InventoryController">Product Inventory</a>
 		
 		
 
