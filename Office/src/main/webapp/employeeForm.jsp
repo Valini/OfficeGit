@@ -124,6 +124,9 @@
 					<label for="postalCode">Postal Code</label><input
 						class="form-control item" type="text" id="postalCode"
 						name="postalCode"
+						pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]"
+						
+						title="Incorrect postal code format. (H2C 2B3)"
 						value="<%out.print(employee.getPostalCode());%>">
 				</div>
 				<input type="hidden" id="employeeId" name="employeeId"
@@ -141,5 +144,7 @@
 	<%
 		}
 	%> </main>
+	<script src="js/jquery.min.js"></script>
+<script src="js/theme.js"></script>
 </body>
 </html>

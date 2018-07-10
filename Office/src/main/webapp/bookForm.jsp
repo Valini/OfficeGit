@@ -72,5 +72,6 @@
 	</form>
 	<%} %>
 	</main>
-</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/theme.js"></script>
 </html>

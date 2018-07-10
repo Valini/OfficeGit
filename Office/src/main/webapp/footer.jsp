@@ -92,4 +92,6 @@
 		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 		crossorigin="anonymous"></script>
 </body>
+<script src="js/jquery.min.js"></script>
+<script src="js/theme.js"></script>
 </html>
