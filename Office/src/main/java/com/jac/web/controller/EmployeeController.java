@@ -25,43 +25,30 @@ public class EmployeeController extends HttpServlet {
 		String employeeId = request.getParameter("employeeId");
 		int id= Integer.parseInt(employeeId);
 		EmployeeDAO p1= new EmployeeDAO();
-		String result = p1.deleteEmployee(id);
-		request.setAttribute("result", result);
-		response.setContentType("text/html");
+		if(p1.deleteEmployee(id)) {
+			request.setAttribute("messageDelete", "Employee successfully deleted!");
+			response.setContentType("text/html");
+			
+			//refresh the product list
+			EmployeeDAO employees= new EmployeeDAO();
+			ArrayList<Employee> employeeList=employees.getAllEmployees();
+			request.setAttribute("employeesList", employeeList);
+			RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
+			rd.include(request, response);
+		}else {
+			request.setAttribute("errorDelete", "Employee NOT deleted!");
+			response.setContentType("text/html");
+			
+			//refresh the product list
+			EmployeeDAO employees= new EmployeeDAO();
+			ArrayList<Employee> employeeList=employees.getAllEmployees();
+			request.setAttribute("employeesList", employeeList);
+			RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
+			rd.include(request, response);
+		}
 		
-		//refresh the product list
-		EmployeeDAO employees= new EmployeeDAO();
-		ArrayList<Employee> employeeList=employees.getAllEmployees();
-		request.setAttribute("employeesList", employeeList);
-		RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
-		rd.include(request, response);
 
 	}
-
-	/*
-	 * /protected void doGet(HttpServletRequest request, HttpServletResponse
-	 * response) throws ServletException, IOException { // for deleting an employee
-	 * (post is not needed) String action = null;
-	 * 
-	 * if (request.getParameter("action") != null) { action =
-	 * request.getParameter("action"); }
-	 * 
-	 * if (action.equals("delete")) {
-	 * 
-	 * EmployeeDAO dao = new EmployeeDAO();
-	 * 
-	 * int id = Integer.parseInt(request.getParameter("id"));
-	 * 
-	 * if (dao.deleteEmployee(id) == true) { request.setAttribute("status",
-	 * "Employee Deleted Successfully"); request.setAttribute("employeesList",
-	 * dao.getAllEmployees()); RequestDispatcher rd =
-	 * request.getRequestDispatcher("boss.jsp"); rd.include(request, response); }
-	 * else { request.setAttribute("status", "Error Deleting Employee");
-	 * RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
-	 * rd.include(request, response); }
-	 * 
-	 * } }
-	 */
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -87,8 +74,10 @@ public class EmployeeController extends HttpServlet {
 			EmployeeDAO employeeDAO = new EmployeeDAO();
 
 			if (employeeDAO.addEmployee(employee)) {
+				EmployeeDAO dao = new EmployeeDAO();
+				request.setAttribute("employeesList", dao.getAllEmployees());
 				request.setAttribute("messageAdd", "New employee added to the list!");
-				RequestDispatcher rd = request.getRequestDispatcher("employeeForm.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
 				rd.forward(request, response);
 			} else {
 				request.setAttribute("errorAdd", "There was an error adding the employee! Please try again.");
@@ -116,13 +105,16 @@ public class EmployeeController extends HttpServlet {
 			EmployeeDAO employeeDAO = new EmployeeDAO();
 
 			if (employeeDAO.updateEmployee(employee)) {
-				request.setAttribute("employeeID", request.getParameter("employeeId"));
+				EmployeeDAO dao = new EmployeeDAO();
+				request.setAttribute("employeesList", dao.getAllEmployees());
 				request.setAttribute("messageUpdate", "Employee #" + employee.getEmployeeId() + " updated!");
 				RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
 				rd.forward(request, response);
 			}
 
 			else {
+				EmployeeDAO dao = new EmployeeDAO();
+				request.setAttribute("employeesList", dao.getAllEmployees());
 				request.setAttribute("employeeID", request.getParameter("employeeId"));
 				request.setAttribute("errorUpdate", "There was an error updating the employee! Please try again.");
 				RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");

@@ -73,9 +73,8 @@ public class EmployeeDAO {
 		return success;
 	}
 
-	public String deleteEmployee(int ID) {
-		//boolean success = false;
-		String result = "Product was not successfully deleted";
+	public boolean deleteEmployee(int ID) {
+		boolean success = false;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/javabeansproject",
@@ -88,17 +87,17 @@ public class EmployeeDAO {
 			// execute the prepared statement
 			int count = preparedStmt.executeUpdate();
 			if (count > 0) {
-				result = "Product successfully deleted!";
+				success =true;
 				
 			} else {
-				result = "Product was not successfully deleted";
+				success = false;
 			}
 			con.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return result;
+		return success;
 	}
 
 	public Employee getEmployeeByID(int ID) {

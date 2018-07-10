@@ -51,7 +51,7 @@ public class LibraryDAO {
 	public ArrayList<Book> getBooksbyNameLike(String bookName) {
 		ArrayList<Book> booksInDB= new ArrayList<Book>();
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/javabeansproject",
 					"javabeansproject", "Ha6R4_U~2Gx0");
 			

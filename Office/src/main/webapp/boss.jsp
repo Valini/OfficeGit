@@ -25,6 +25,18 @@
 			if (request.getAttribute("employeesList") != null) {
 
 				ArrayList<Employee> list = (ArrayList<Employee>) request.getAttribute("employeesList");
+				
+			if (request.getAttribute("errorAdd") != null) {
+				out.println("<div class='alert alert-danger'>" + request.getAttribute("errorAdd") + "</div>");
+			} else if (request.getAttribute("messageAdd") != null) {
+				out.println("<div class='alert alert-success'>" + request.getAttribute("messageAdd") + "</div>");
+			} 
+			
+			if (request.getAttribute("errorDelete") != null) {
+				out.println("<div class='alert alert-danger'>" + request.getAttribute("errorDelete") + "</div>");
+			} else if (request.getAttribute("messageDelete") != null) {
+				out.println("<div class='alert alert-success'>" + request.getAttribute("messageDelete") + "</div>");
+			}
 		%>
 
 		<table class="table">
