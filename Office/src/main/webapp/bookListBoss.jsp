@@ -26,10 +26,15 @@
 	<main class="page container" style="margin-top:150px;">
 	<div class="container">
 		<h1>The books of The Office</h1>
-		<br>
 		<div>
+			
 			<br>
-
+			<h4>
+				<img id="bookimage"
+					src="images/PNGPIX-COM-Open-Book-PNG-Transparent-Image.png" />List
+				of books available
+			</h4>
+			<br/>
 			<%
 				if (request.getAttribute("result") != null) {
 					out.println("<div class='alert alert-danger'>" + request.getAttribute("result") + "</div>");
@@ -38,12 +43,6 @@
 					out.println("<div class='alert alert-success'>" + request.getAttribute("messageAdd") + "</div>");
 				}
 			%>
-			<br>
-			<h4>
-				<img id="bookimage"
-					src="images/PNGPIX-COM-Open-Book-PNG-Transparent-Image.png" />List
-				of books available
-			</h4>
 			<form class="search-form" action="bookSearch" method="get"
 				style="margin-top: 105px;">
 				<div class="input-group container">
@@ -94,15 +93,7 @@
 			</table>
 			<br />
 			<p>
-<<<<<<< HEAD
-				<<<<<<< HEAD <a class="btn btn-primary" href="bookForm.jsp">Add
-					Book</a> ======= <a class="btn btn-secondary" href="bookForm.jsp">Add
-					Book</a> >>>>>>> 3f74f1df8549a9ef66bc35031417d8672a5e688a
-=======
-
-				<a class="btn btn-secondary" href="bookForm.jsp">Add Book</a>
-
->>>>>>> fd967e535f2f04f9875228036270e935cbe45671
+			<a class="btn btn-secondary" href="bookForm.jsp">Add Book</a>
 			</p>
 		</div>
 

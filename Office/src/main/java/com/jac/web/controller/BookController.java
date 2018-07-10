@@ -32,7 +32,7 @@ public class BookController extends HttpServlet {
 		else {
 			LibraryDAO books= new LibraryDAO();
 		
-		ArrayList<Book> bookList=books.GetBooksbyNameLike(searchBookName);
+		ArrayList<Book> bookList=books.getBooksbyNameLike(searchBookName);
 		//if books not available display message else show list of books 
 			if(bookList.isEmpty()) {
 				String result= "Book not available";

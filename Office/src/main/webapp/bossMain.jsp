@@ -15,12 +15,20 @@
 		<div class="col-lg-6">
 			<a href="<% EmployeeDAO dao = new EmployeeDAO();
 								request.setAttribute("employeesList", dao.getAllEmployees());
-								out.print("boss.jsp");%>"><img src="images/staff.jpg" class="rounded img-fluid img-thumbnail" alt="sraff image" height="50"></a>
-		</div>
+								out.print("boss.jsp");%>"><img src="images/staff.jpg" class="rounded img-fluid img-thumbnail" alt="sraff image" height="50">
+								</a>
+				<div class="content">
+					<h1>Employee List</h1>
+				</div>
+			</div>
 		<div class="col-lg-6">
 			<a href="<% LibraryDAO books = new LibraryDAO();
 								request.setAttribute("bookList", books.getAllBooks());
-								out.print("bookListBoss.jsp");%>"><img src="images/books.jpg" class="rounded img-fluid img-thumbnail" alt="sraff image" height="100"></a>
+								out.print("bookListBoss.jsp");%>"><img src="images/books.jpg" class="rounded img-fluid img-thumbnail" alt="sraff image" height="100">
+								</a>
+								<div class="content">
+					<h1>Book List</h1>
+				</div>
 		</div>
 		
 	</div>
