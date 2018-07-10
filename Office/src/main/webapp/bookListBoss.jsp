@@ -88,7 +88,7 @@
 			</table>
 			<br />
 			<p>
-				<a href="bookForm.jsp">Add Book</a>
+				<a class="btn btn-primary"  href="bookForm.jsp">Add Book</a>
 			</p>
 		</div>
 
