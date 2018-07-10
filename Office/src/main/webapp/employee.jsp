@@ -32,7 +32,7 @@
 				id="searchAction"
 				placeholder="Please enter the title of the book you are looking for.." />
 			<div class="input-group-append">
-				<button class="btn btn-info" type="Submit">Search</button>
+				<button class="btn btn-light" type="Submit">Search</button>
 			</div>
 		</div>
 	</form>
@@ -91,7 +91,6 @@
 
 	</div>
 	</main>
-<script src="js/jquery.min.js"></script>
-<script src="js/theme.js"></script>
+
 </body>
 </html>

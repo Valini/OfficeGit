@@ -51,15 +51,15 @@
 				<td><%=lastName%></td>
 				<td><%=city%></td>
 				<td><%=postal%></td>
+				<td><a class="btn btn-secondary"
+					href="employeeForm.jsp?employeeID=<%=e.getEmployeeId()%>">Edit</a></td>
 				<td><form action="EmployeeController" method="get">
 						<input type="hidden" name="employeeId"
 							value="<%=e.getEmployeeId()%>">
 						<button class="btn btn-secondary" type="submit">Delete</button>
 					</form>
 				<td>
-				<td><a class="btn btn-secondary"
-					href="employeeForm.jsp?employeeID=<%=e.getEmployeeId()%>">Edit</a></td>
-
+				
 			</tr>
 
 
