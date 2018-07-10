@@ -50,6 +50,7 @@
 					<input class="form-control" type="text" name="searchAction"
 						id="searchAction"
 						placeholder="Please enter the title of the book you are looking for.." />
+						<input type="hidden" name="action" id="action" value="employeeSearch">
 					<div class="input-group-append">
 						<button class="btn btn-info" type="Submit">Search</button>
 					</div>
@@ -66,20 +67,27 @@
 				</thead>
 				<tbody>
 					<%
-						ArrayList<Book> bookList = (ArrayList<Book>) request.getAttribute("bookList");
-						for (int i = 0; i < bookList.size(); i++) {
-							Book book = bookList.get(i);
+						if(request.getAttribute("bookList")!=null){
+							ArrayList<Book> bookList = (ArrayList<Book>) request.getAttribute("bookList");
+							for (int i = 0; i < bookList.size(); i++) {
+								Book book = bookList.get(i);
 					%>
 					<tr>
 						<td><%=book.getBookId()%></td>
 						<td><%=book.getBookName()%></td>
 						<td><%=book.getAuthorName()%></td>
-
-
-						<%
-							}
-						%>
 					</tr>
+					<%}}else if (request.getAttribute("bookListFresh")!=null){
+						ArrayList<Book> bookList = (ArrayList<Book>) request.getAttribute("bookListFresh");
+						for (int i = 0; i < bookList.size(); i++) {
+							Book book = bookList.get(i);
+					 %>
+					 <tr>
+						<td><%=book.getBookId()%></td>
+						<td><%=book.getBookName()%></td>
+						<td><%=book.getAuthorName()%></td>
+					</tr>
+					<%}} %>
 				</tbody>
 			</table>
 			<br />

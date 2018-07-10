@@ -24,12 +24,12 @@
 							if (session.getAttribute("employeeName") == null){
 								out.print("index.jsp");
 							}else if (session.getAttribute("employeeName").equals("boss"))  {
-								//EmployeeDAO dao = new EmployeeDAO();
-								//request.setAttribute("employeesList", dao.getAllEmployees());
+								EmployeeDAO dao = new EmployeeDAO();
+								request.setAttribute("bookListFresh", dao.getAllEmployees());
 								out.print("bossMain.jsp");
 							}else{
 								LibraryDAO books = new LibraryDAO();
-								request.setAttribute("bookList", books.getAllBooks());
+								request.setAttribute("bookListFresh", books.getAllBooks());
 								out.print("employee.jsp");
 							}
 						%> "><img id="theoffice"
@@ -50,13 +50,13 @@
 						</li>
 						<li class="nav-item" role="presentation">
 						<a class="nav-link" href="<% LibraryDAO books = new LibraryDAO();
-								request.setAttribute("bookList", books.getAllBooks());
+								request.setAttribute("bookListFresh", books.getAllBooks());
 								out.print("bookListBoss.jsp");%>">Book List</a>
 						</li>
 					<%} else{ %>
 						<li class="nav-item" role="presentation">
 						<a class="nav-link" href="<% LibraryDAO books = new LibraryDAO();
-								request.setAttribute("bookList", books.getAllBooks());
+								request.setAttribute("bookListFresh", books.getAllBooks());
 								out.print("employee.jsp");%>">Book List</a>
 						</li>
 					<%} %>

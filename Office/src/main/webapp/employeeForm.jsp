@@ -63,7 +63,7 @@
 						title="Incorrect postal code format. (H2C 2B3)">
 				</div>
 				<input type="hidden" name="action" id="action" value="add">
-				<button class="btn btn-primary btn-block" type="submit">Add
+				<button class="btn btn-secondary btn-block" type="submit">Add
 					Employee</button>
 				
 					
@@ -71,11 +71,16 @@
 			<br>
 			<div>
 				
-				<a class="btn btn-primary btn-block"  href="Manage">Back</a>
+				<a class="btn btn-secondary btn-block"  href="Manage">Back</a>
 				</div>
 		</div>
 		</section>
 	</div>
+	<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
 	<%
 		} else {
 	%>
@@ -132,12 +137,17 @@
 				<input type="hidden" id="employeeId" name="employeeId"
 					value="<%out.print(employee.getEmployeeId());%>">
 					<input type="hidden" name="action" id="action" value="edit">
-				<button class="btn btn-primary btn-block" type="submit">Edit
+				<button class="btn btn-secondary btn-block" type="submit">Edit
 					Employee</button>
 					
-					<a class="btn btn-primary btn-block"  href="Manage">Back</a>
+					<a class="btn btn-secondary btn-block"  href="Manage">Back</a>
 			</form>
 		</div>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
 		</section>
 	</div>
 

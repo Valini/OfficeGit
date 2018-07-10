@@ -53,6 +53,7 @@
 						id="searchAction"
 						placeholder="Please enter the title of the book you are looking for.." />
 					<div class="input-group-append">
+					<input type="hidden" name="action" id="action" value="bossSearch">
 						<button class="btn btn-info" type="Submit">Search</button>
 					</div>
 				</div>
@@ -68,9 +69,10 @@
 				</thead>
 				<tbody>
 					<%
-						ArrayList<Book> bookList = (ArrayList<Book>) request.getAttribute("bookList");
-						for (int i = 0; i < bookList.size(); i++) {
-							Book book = bookList.get(i);
+						if(request.getAttribute("bookList")!=null){
+							ArrayList<Book> bookList = (ArrayList<Book>) request.getAttribute("bookList");
+							for (int i = 0; i < bookList.size(); i++) {
+								Book book = bookList.get(i);
 					%>
 					<tr>
 						<td><%=book.getBookId()%></td>
@@ -83,12 +85,25 @@
 									value="<%=book.getBookId()%>">
 								<button class="btn btn-secondary" type="submit">Delete</button>
 							</form></td>
-
-
-						<%
-							}
-						%>
 					</tr>
+					<%}}else if (request.getAttribute("bookListFresh")!=null){
+						ArrayList<Book> bookList = (ArrayList<Book>) request.getAttribute("bookListFresh");
+						for (int i = 0; i < bookList.size(); i++) {
+							Book book = bookList.get(i);
+					 %>
+					 <tr>
+						<td><%=book.getBookId()%></td>
+						<td><%=book.getBookName()%></td>
+						<td><%=book.getAuthorName()%></td>
+						<td><a class="btn btn-secondary"
+							href="bookForm.jsp?bookId=<%=book.getBookId()%>">Edit</a></td>
+						<td><form action="LibraryController" method="get">
+								<input type="hidden" name="bookId"
+									value="<%=book.getBookId()%>">
+								<button class="btn btn-secondary" type="submit">Delete</button>
+							</form></td>
+					</tr>
+					<%}} %>
 				</tbody>
 			</table>
 			<br />

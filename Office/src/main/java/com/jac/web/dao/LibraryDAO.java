@@ -71,7 +71,7 @@ public class LibraryDAO {
 				p1.setAuthorName(authorNameFromDB);
 				booksInDB.add(p1);
 			}
-			
+			con.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

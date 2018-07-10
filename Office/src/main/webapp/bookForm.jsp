@@ -38,8 +38,13 @@
 				required="required" />
 		</div>
 		<input type="hidden" name="action" id="action" value="add">
-		<button class="btn btn-primary btn-block" type="submit">Add Book</button>
+		<button class="btn btn-secondary btn-block" type="submit">Add Book</button>
 	</form>
+	<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
 	<%} else { %>
 	<form action="LibraryController" method="post">
 		<div class="block-heading">
@@ -68,8 +73,13 @@
 		</div>
 		<input type="hidden" name="bookId" id="bookId" value="<%=book.getBookId()%>">
 		<input type="hidden" name="action" id="action" value="edit">
-		<button class="btn btn-primary btn-block" type="submit">Edit Book</button>
+		<button class="btn btn-secondary btn-block" type="submit">Edit Book</button>
 	</form>
+	<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
 	<%} %>
 	</main>
 </body>
