@@ -24,9 +24,9 @@
 							if (session.getAttribute("employeeName") == null){
 								out.print("index.jsp");
 							}else if (session.getAttribute("employeeName").equals("boss"))  {
-								EmployeeDAO dao = new EmployeeDAO();
-								request.setAttribute("employeesList", dao.getAllEmployees());
-								out.print("boss.jsp");
+								//EmployeeDAO dao = new EmployeeDAO();
+								//request.setAttribute("employeesList", dao.getAllEmployees());
+								out.print("bossMain.jsp");
 							}else{
 								LibraryDAO books = new LibraryDAO();
 								request.setAttribute("bookList", books.getAllBooks());

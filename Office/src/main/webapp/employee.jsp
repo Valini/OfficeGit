@@ -24,6 +24,7 @@
 	<%@ include file="navbar.jsp"%>
 	<form class="search-form" action="bookSearch" method="get"
 		style="margin-top: 105px;">
+		<div class="container"> 
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fa fa-search"></i></span>
@@ -34,6 +35,7 @@
 			<div class="input-group-append">
 				<button class="btn btn-info" type="Submit">Search</button>
 			</div>
+		</div>
 		</div>
 	</form>
 	<br>
