@@ -22,6 +22,7 @@
 <body>
 	<!-- Navbar -->
 	<%@ include file="navbar.jsp"%>
+	<!-- 
 	<form class="search-form" action="bookSearch" method="get"
 		style="margin-top: 105px;">
 		<div class="container"> 
@@ -39,12 +40,12 @@
 		</div>
 	</form>
 	<br>
-	<main class="page container" style="margin-top:100px;">
+	-->
+	<main class="page container" style="margin-top:10%;">
 	<div class="container">
 		<h1>The books of The Office</h1>
-		<br>
+		
 		<div>
-			<br>
 
 			<%
 				if (request.getAttribute("result") != null) {
@@ -54,12 +55,26 @@
 					out.println("<div class='alert alert-success'>" + request.getAttribute("messageAdd") + "</div>");
 				}
 			%>
-			<br>
 			<h4>
 				<img id="bookimage"
 					src="images/PNGPIX-COM-Open-Book-PNG-Transparent-Image.png" />List
 				of books available
 			</h4>
+			
+			<form class="search-form" action="bookSearch" method="get">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"><i class="fa fa-search"></i></span>
+					</div>
+					<input class="form-control" type="text" name="searchAction"
+						id="searchAction"
+						placeholder="Please enter the title of the book you are looking for.." />
+					<div class="input-group-append">
+						<button class="btn btn-info" type="Submit">Search</button>
+					</div>
+				</div>
+			</form>
+	
 			<table class="table table-hover">
 				<thead>
 					<tr>

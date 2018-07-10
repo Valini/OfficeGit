@@ -88,7 +88,11 @@
 			</table>
 			<br />
 			<p>
+<<<<<<< HEAD
+				<a class="btn btn-primary"  href="bookForm.jsp">Add Book</a>
+=======
 				<a class="btn btn-secondary" href="bookForm.jsp">Add Book</a>
+>>>>>>> 3f74f1df8549a9ef66bc35031417d8672a5e688a
 			</p>
 		</div>
 
