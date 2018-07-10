@@ -88,7 +88,7 @@
 <br>
 
 
-	<a class="btn btn-primary" href="InventoryController">Product Inventory</a>
+	<a class="btn btn-primary" href="InventoryController">Book List</a>
 		
 		
 
