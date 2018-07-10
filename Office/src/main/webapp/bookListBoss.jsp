@@ -94,9 +94,15 @@
 			</table>
 			<br />
 			<p>
+<<<<<<< HEAD
 				<<<<<<< HEAD <a class="btn btn-primary" href="bookForm.jsp">Add
 					Book</a> ======= <a class="btn btn-secondary" href="bookForm.jsp">Add
 					Book</a> >>>>>>> 3f74f1df8549a9ef66bc35031417d8672a5e688a
+=======
+
+				<a class="btn btn-secondary" href="bookForm.jsp">Add Book</a>
+
+>>>>>>> fd967e535f2f04f9875228036270e935cbe45671
 			</p>
 		</div>
 
