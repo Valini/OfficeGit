@@ -22,22 +22,8 @@
 <body>
 	<!-- Navbar -->
 	<%@ include file="navbar.jsp"%>
-	<form class="search-form" action="bookSearch" method="get"
-		style="margin-top: 105px;">
-		<div class="input-group container">
-			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fa fa-search"></i></span>
-			</div>
-			<input class="form-control" type="text" name="searchAction"
-				id="searchAction"
-				placeholder="Please enter the title of the book you are looking for.." />
-			<div class="input-group-append">
-				<button class="btn btn-info" type="Submit">Search</button>
-			</div>
-		</div>
-	</form>
-	<br>
-	<main class="page container" style="margin-top:100px;">
+
+	<main class="page container" style="margin-top:150px;">
 	<div class="container">
 		<h1>The books of The Office</h1>
 		<br>
@@ -48,7 +34,7 @@
 				if (request.getAttribute("result") != null) {
 					out.println("<div class='alert alert-danger'>" + request.getAttribute("result") + "</div>");
 				}
-			 if (request.getAttribute("messageAdd") != null) {
+				if (request.getAttribute("messageAdd") != null) {
 					out.println("<div class='alert alert-success'>" + request.getAttribute("messageAdd") + "</div>");
 				}
 			%>
@@ -58,6 +44,21 @@
 					src="images/PNGPIX-COM-Open-Book-PNG-Transparent-Image.png" />List
 				of books available
 			</h4>
+			<form class="search-form" action="bookSearch" method="get"
+				style="margin-top: 105px;">
+				<div class="input-group container">
+					<div class="input-group-prepend">
+						<span class="input-group-text"><i class="fa fa-search"></i></span>
+					</div>
+					<input class="form-control" type="text" name="searchAction"
+						id="searchAction"
+						placeholder="Please enter the title of the book you are looking for.." />
+					<div class="input-group-append">
+						<button class="btn btn-info" type="Submit">Search</button>
+					</div>
+				</div>
+			</form>
+			<br>
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -76,8 +77,13 @@
 						<td><%=book.getBookId()%></td>
 						<td><%=book.getBookName()%></td>
 						<td><%=book.getAuthorName()%></td>
-						<td><a class="btn btn-secondary" href="bookForm.jsp?bookId=<%=book.getBookId()%>">Edit</a></td>
-						<td><form action="LibraryController" method="get" ><input type="hidden" name="bookId" value="<%= book.getBookId() %>"><button class="btn btn-secondary" type="submit">Delete</button></form></td>
+						<td><a class="btn btn-secondary"
+							href="bookForm.jsp?bookId=<%=book.getBookId()%>">Edit</a></td>
+						<td><form action="LibraryController" method="get">
+								<input type="hidden" name="bookId"
+									value="<%=book.getBookId()%>">
+								<button class="btn btn-secondary" type="submit">Delete</button>
+							</form></td>
 
 
 						<%
@@ -88,11 +94,9 @@
 			</table>
 			<br />
 			<p>
-<<<<<<< HEAD
-				<a class="btn btn-primary"  href="bookForm.jsp">Add Book</a>
-=======
-				<a class="btn btn-secondary" href="bookForm.jsp">Add Book</a>
->>>>>>> 3f74f1df8549a9ef66bc35031417d8672a5e688a
+				<<<<<<< HEAD <a class="btn btn-primary" href="bookForm.jsp">Add
+					Book</a> ======= <a class="btn btn-secondary" href="bookForm.jsp">Add
+					Book</a> >>>>>>> 3f74f1df8549a9ef66bc35031417d8672a5e688a
 			</p>
 		</div>
 
@@ -100,7 +104,7 @@
 
 	</div>
 	</main>
-<script src="js/jquery.min.js"></script>
-<script src="js/theme.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/theme.js"></script>
 </body>
 </html>

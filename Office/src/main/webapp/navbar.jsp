@@ -64,9 +64,9 @@
 					<li class="nav-item" role="presentation">
 						<%
 							if (session.getAttribute("employeeName") != null) {
-						%> <a class="nav-link" href="login">Welcome <%
+						%> <div class="nav-link active">Welcome <%
  	out.print(session.getAttribute("employeeName"));
- %></a>
+ %></div>
 						<%
 							} else {
 						%> <a class="nav-link" href="login"></a> <%
