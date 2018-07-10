@@ -31,7 +31,7 @@ public class LibraryController extends HttpServlet {
 		LibraryDAO dao = new LibraryDAO();
 		ArrayList<Book> bookList = dao.getAllBooks();
 		request.setAttribute("bookList", bookList);
-		RequestDispatcher rd = request.getRequestDispatcher("employee.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("bookListBoss.jsp");
 		rd.include(request, response);
 
 	}
@@ -80,14 +80,20 @@ public class LibraryController extends HttpServlet {
 			if (dao.updateBook(book)) {
 				request.setAttribute("bookId", request.getParameter("bookId"));
 				request.setAttribute("messageUpdate", "Book #" + book.getBookId() + " updated!");
-				RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
+				LibraryDAO books = new LibraryDAO();
+				ArrayList<Book> bookList = books.getAllBooks();
+				request.setAttribute("bookList", bookList);
+				RequestDispatcher rd = request.getRequestDispatcher("bookListBoss.jsp");
 				rd.forward(request, response);
 			}
 
 			else {
 				request.setAttribute("bookId", request.getParameter("bookId"));
+				LibraryDAO books = new LibraryDAO();
+				ArrayList<Book> bookList = books.getAllBooks();
+				request.setAttribute("bookList", bookList);
 				request.setAttribute("errorUpdate", "There was an error updating the book! Please try again.");
-				RequestDispatcher rd = request.getRequestDispatcher("boss.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("bookListBoss.jsp");
 				rd.forward(request, response);
 			}
 		}
