@@ -37,6 +37,11 @@
 			} else if (request.getAttribute("messageDelete") != null) {
 				out.println("<div class='alert alert-success'>" + request.getAttribute("messageDelete") + "</div>");
 			}
+			if (request.getAttribute("errorUpdate") != null) {
+				out.println("<div class='alert alert-danger'>" + request.getAttribute("errorUpdate") + "</div>");
+			} else if (request.getAttribute("messageUpdate") != null) {
+				out.println("<div class='alert alert-success'>" + request.getAttribute("messageUpdate") + "</div>");
+			}
 		%>
 
 		<table class="table">
@@ -91,15 +96,7 @@
 			}
 		%>
 		<a href="employeeForm.jsp" class="btn btn-secondary">Add Employee</a>
-		<%
-			if (request.getAttribute("errorUpdate") != null) {
-				out.println("<div class='alert alert-danger'>" + request.getAttribute("errorUpdate") + "</div>");
-			} else if (request.getAttribute("messageUpdate") != null) {
-				out.println("<div class='alert alert-success'>" + request.getAttribute("messageUpdate") + "</div>");
-			}
-		%>
-		<br> <br> <!-- <a class="btn btn-secondary"
-			href="InventoryController">Book List</a> -->
+
 	</div>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/theme.js"></script>

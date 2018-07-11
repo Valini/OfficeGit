@@ -42,6 +42,17 @@
 				if (request.getAttribute("messageAdd") != null) {
 					out.println("<div class='alert alert-success'>" + request.getAttribute("messageAdd") + "</div>");
 				}
+				
+				if (request.getAttribute("errorUpdate") != null) {
+					out.println("<div class='alert alert-danger'>" + request.getAttribute("errorUpdate") + "</div>");
+				} else if (request.getAttribute("messageUpdate") != null) {
+					out.println("<div class='alert alert-success'>" + request.getAttribute("messageUpdate") + "</div>");
+				}
+				if (request.getAttribute("errorDelete") != null) {
+					out.println("<div class='alert alert-danger'>" + request.getAttribute("errorDelete") + "</div>");
+				} else if (request.getAttribute("messageDelete") != null) {
+					out.println("<div class='alert alert-success'>" + request.getAttribute("messageDelete") + "</div>");
+				}
 			%>
 			<form class="search-form" action="bookSearch" method="get"
 				style="margin-top: 105px;">

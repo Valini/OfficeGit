@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import com.jac.web.dao.LibraryDAO;
 import com.jac.web.model.Book;
+
 
 /**
  * Servlet implementation class LibraryController
@@ -23,17 +25,31 @@ public class LibraryController extends HttpServlet {
 		String bookId = request.getParameter("bookId");
 		int id = Integer.parseInt(bookId);
 		LibraryDAO b1 = new LibraryDAO();
-		b1.deleteBook(id);
-
-		response.setContentType("text/html");
-
-		// refresh the product list
-		LibraryDAO dao = new LibraryDAO();
-		ArrayList<Book> bookList = dao.getAllBooks();
-		request.setAttribute("bookList", bookList);
-		RequestDispatcher rd = request.getRequestDispatcher("bookListBoss.jsp");
-		rd.include(request, response);
-
+		
+		
+		if(b1.deleteBook(id)) {
+			request.setAttribute("messageDelete", "Book successfully deleted!");
+			response.setContentType("text/html");
+			
+			// refresh the book list
+			LibraryDAO dao = new LibraryDAO();
+			ArrayList<Book> bookList = dao.getAllBooks();
+			
+			request.setAttribute("bookList", bookList);
+			RequestDispatcher rd = request.getRequestDispatcher("bookListBoss.jsp");
+			rd.include(request, response);
+		}else {
+			request.setAttribute("errorDelete", "Book NOT deleted!");
+			response.setContentType("text/html");
+			
+			// refresh the book list
+			LibraryDAO dao = new LibraryDAO();
+			ArrayList<Book> bookList = dao.getAllBooks();
+			
+			request.setAttribute("bookList", bookList);
+			RequestDispatcher rd = request.getRequestDispatcher("bookListBoss.jsp");
+			rd.include(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

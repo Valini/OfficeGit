@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jac.web.dao.EmployeeDAO;
-import com.jac.web.dao.LibraryDAO;
-import com.jac.web.model.Book;
 import com.jac.web.model.Employee;
 
 /**
